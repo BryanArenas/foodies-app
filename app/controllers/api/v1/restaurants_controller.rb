@@ -1,7 +1,7 @@
 module Api
     module V1
-        class RestaurantController < ApplicationController
-            protect_from_forgery with: :null_session
+        class RestaurantsController < ApplicationController
+            
 
             def index
                 restaurant = Restaurant.all
@@ -12,7 +12,7 @@ module Api
             def show
                 restaurant = Restaurant.find_by(slug: params[:slug])
 
-                render json: RestaurantSerializer.new(restaurants, options).serialized_json
+                render json: RestaurantSerializer.new(restaurant, options).serialized_json
             end
 
             def create
@@ -55,6 +55,7 @@ module Api
             def options
                 @options ||= { include: %i[reviews] }
             end
+
 
         end
     end
