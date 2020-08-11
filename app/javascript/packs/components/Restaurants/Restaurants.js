@@ -39,7 +39,9 @@ const Restaurants = () => {
 
     useEffect( () => {
         axios.get('/api/v1/restaurants.json')
-        .then( resp => setRestaurants(resp.data) )
+        .then( resp => { 
+            setRestaurants(resp.data) 
+        })
         .catch( resp => console.log(resp) ) 
     }, [])
 

@@ -3,7 +3,16 @@ import axios from 'axios'
 import styled from 'styled-components'
 import Header from './Header'
 
-
+const Column = styled.div`
+    background: #fff;
+    max-width: 50%;
+    width: 50%;
+    float: left;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow: scroll;
+`
 
 const Restaurant = () => {
     const [restaurant, setRestaurant] = useState({})
@@ -12,7 +21,6 @@ const Restaurant = () => {
 
     useEffect( () => {
         const slug = this.props.match.params.slug
-        
         const url = '/api/v1/restaurants/' + slug
 
         axios.get(url)
@@ -25,20 +33,20 @@ const Restaurant = () => {
 
     return (
         <div>
-            <div className="column">
+            <Column>
                 {
                         loaded &&
                 <Header
                     attributes={restaurant.data.attributes}
                 />
-}
+                }       
                 <div className="reviews">
                     [Reviews Here]
                 </div>
-            </div>
-            <div className="column">
+            </Column>
+            <Column>
                 [NewReview Here]
-            </div>
+            </Column>
         </div>
     )
 }

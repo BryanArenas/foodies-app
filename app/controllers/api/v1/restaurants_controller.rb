@@ -4,7 +4,7 @@ module Api
             
 
             def index
-                restaurant = Restaurant.all
+                restaurants = Restaurant.all
 
                 render json: RestaurantSerializer.new(restaurants, options).serialized_json
             end

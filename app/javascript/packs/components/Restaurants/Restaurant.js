@@ -37,6 +37,7 @@ const LinkWrapper = styled.div `
 `
 const Restaurant = (props) => {
     const {name, image_url, slug} = props.attributes
+    
     return (
         <Card> 
             <RestaurantLogo>
