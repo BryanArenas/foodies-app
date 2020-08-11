@@ -31,9 +31,6 @@ const Grid = styled.div`
     padding:20px;
 `
 
-
-
-
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState([])
 

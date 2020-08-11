@@ -1,7 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Link } from 'react-router-dom'
 
-
 const Card = styled.div `
     border: 1px solid #efefef;
     background: #fff;
@@ -37,7 +36,7 @@ const LinkWrapper = styled.div `
 `
 const Restaurant = (props) => {
     const {name, image_url, slug} = props.attributes
-    
+
     return (
         <Card> 
             <RestaurantLogo>
