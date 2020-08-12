@@ -32,19 +32,20 @@ const Grid = styled.div`
 `
 
 const Restaurants = () => {
-    const [restaurants, setRestaurants] = useState([])
+    const [restaurants, setRestaurants] = useState([]);
 
     useEffect( () => {
         axios.get('/api/v1/restaurants.json')
-        .then( resp => setRestaurants(resp.data) )
+        .then( resp => setRestaurants(resp.data.data) )
         .catch( resp => console.log(resp) ) 
     }, [])
 
+    console.log(JSON.stringify(restaurants))
     const grid = restaurants.map( (restaurant, index) => {
         return (
             <Restaurant
             key={index}
-            attributes={restaurant.data.attributes}
+            attributes={restaurant.attributes}
             />
         )
     })

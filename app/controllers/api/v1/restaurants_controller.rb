@@ -1,25 +1,25 @@
 module Api
     module V1
         class RestaurantsController < ApplicationController
-           
+            
 
             def index
                 restaurants = Restaurant.all
 
-                render json: serializer(restaurants, options)
+                render json: RestaurantSerializer.new(restaurants, options).serialized_json
             end
 
             def show
                 restaurant = Restaurant.find_by(slug: params[:slug])
 
-                render json: serializer(restaurant, options)
+                render json: RestaurantSerializer.new(restaurant, options).serialized_json
             end
 
             def create
                 restaurant = Restaurant.new(restaurant_params)
 
                 if restaurant.save
-                    render json: serializer(restaurant)
+                    render json: RestaurantSerializer.new(restaurant).serialized_json
                 else
                     render json: { error: restaurant.errors.messages }, status: 422
                 end
@@ -29,7 +29,7 @@ module Api
                 restaurant = Restaurant.find_by(slug: params[:slug])
 
                 if restaurant.save
-                    render json: serializer(restaurant, options)
+                    render json: RestaurantSerializer.new(restaurant, options).serialized_json
                 else
                     render json: { error: restaurant.errors.messages }, status: 422
                 end
@@ -51,12 +51,7 @@ module Api
             def restaurant_params
                 params.require(:restaurant).permit(:name, :image_url)
             end
-
-            def serializer(records, options = {})
-                RestaurantSerializer
-                  .new(records, options)
-                  .serialized_json
-              end
+            
 
             def options
                 @options ||= { include: %i[reviews] }
