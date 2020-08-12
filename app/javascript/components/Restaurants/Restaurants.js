@@ -40,7 +40,6 @@ const Restaurants = () => {
         .catch( resp => console.log(resp) ) 
     }, [])
 
-    console.log(JSON.stringify(restaurants))
     const grid = restaurants.map( (restaurant, index) => {
         return (
             <Restaurant
