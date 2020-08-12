@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import Header from './Header'
+import Review from './Review'
+
 
 
 const Column = styled.div`
@@ -15,7 +17,7 @@ const Column = styled.div`
     overflow: scroll;
 `
 
-const Restaurant = () => {
+const Restaurant = (props) => {
     const [restaurant, setRestaurant] = useState({})
     const [review, setReview] = useState({})
     const [loaded, setLoaded] = useState(false)
@@ -23,16 +25,31 @@ const Restaurant = () => {
 
     useEffect( () => {
         const slug = props.match.params.slug
-        const url = (`/api/v1/restaurants/${slug}`) 
+        const url = '/api/v1/restaurants/' + slug
 
         axios.get(url)
         .then( (resp) => {
-            setRestaurant(resp.data)
+            setRestaurant(resp.data.data)
             setLoaded(true)
         })
         .catch( resp => console.log(resp) )
     }, [])
+    
 
+    //problem area below
+    let reviews
+        if (length > 0) {
+            reviews = reviews.map( (review, index) => {
+            return (
+                <Review 
+                key={index}
+                title={review.attributes.title}
+                description={review.attributes.description}
+                score={review.attributes.score}
+                />
+            )
+        })
+    }
 
     return (
         <div>
@@ -40,11 +57,11 @@ const Restaurant = () => {
                { 
                 loaded &&
                 <Header
-                    attributes={restaurant.data.attributes}
+                    attributes={restaurant.attributes}
                 />
             }
                 <div className="reviews">
-                    [Reviews Here]
+                    {reviews}
                 </div>
             </Column>
             <Column>
