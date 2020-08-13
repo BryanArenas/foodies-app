@@ -3,12 +3,12 @@ import axios from 'axios'
 import styled from 'styled-components'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
+import Header from './Header'
 
 
 const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
 `
 const Column = styled.div`
@@ -30,11 +30,7 @@ const Main = styled.div`
     padding-left: 50px;
 `
 
-const Header = styled.div`
-    padding:100px 100px 10px 100px;
-    font-size:30px;
-    text-align:center;
-`
+
 
 const Restaurant = (props) => {
     const [restaurant, setRestaurant] = useState({})
@@ -65,36 +61,37 @@ const Restaurant = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const csrfToken = document.querySelector('[name=csrf-token]').Content
+        const csrfToken = document.querySelector('[name=csrf-token]').content
         axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
-        const restaurant_id = restaurant.data.id
+        const restaurant_id = parseInt(restaurant.data.id)
         axios.post('api/v1/reviews', {review, restaurant_id})
         .then( resp => {
             const included = [...restaurant.included, resp.data.data]
             setRestaurant({...restaurant, included})
             setReview({title: '', description: '', score: 0})
         })
-        .catch( resp => {
+        .catch( resp => console.log(resp))
+    }
 
-        })
+    const setRating = (score, e) => {
+        
+
+        setReview({ ...review, score})
     }
     //problem area below
         
-    let reviews
-        if ( length > 0)  {
-            reviews = restaurants.included.map( (review, index) => {
-            return (
-                <Review 
-                key={index}
-                title={review.attributes.title}
-                description={review.attributes.description}
-                score={review.attributes.score}
-                />
-            )
-        })
+    let reviews 
+    if (loaded && restaurant.included) {
+        reviews = restaurant.included.map( (item, index) => {
+        return (
+            <Review
+            key={index}
+            attributes={item.attributes}
+            />
+         )
+        })  
     }
-
     return (
         <Wrapper>
             {
@@ -105,18 +102,17 @@ const Restaurant = (props) => {
                         <Header
                         attributes={restaurant.data.attributes}
                         reviews={restaurant.included}
-                        />
-                        <div className="reviews">
+                        /> 
                             {reviews}
-                        </div>
                     </Main>
                 </Column>
                 <Column>
                     <ReviewForm
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
-                    attributes={restaurant.data.attributes}
+                    setRating={setRating}
                     review={review}
+                    attributes={restaurant.data.attributes}
                     />
                 </Column>
             </Fragment>

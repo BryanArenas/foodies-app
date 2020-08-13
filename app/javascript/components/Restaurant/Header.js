@@ -41,7 +41,7 @@ const Header = (props) => {
                 <div className="starRating"></div>
                 <TotalOutOf>{avg_score} out of 5</TotalOutOf>
             </div>
-            <Rating score={average}/>
+            <Rating score={avg_score}/>
         </Wrapper>
     )
 }

@@ -6,7 +6,9 @@ const Card = styled.div`
     border-radius: 4px;
     border: 1px solid #E6E6E6;
     padding: 20px;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 20px 20px 0px;
+    background-color: #FAFAFA;
+
 `
 
 const Title = styled.div`
@@ -19,15 +21,16 @@ const Description = styled.div`
 
 `
 const Review = (props) => {
+    const { score, title, description } = props.attributes
     return (
         <Card>
             <Title>
-                {props.title}
+                {title}
             </Title>
             <Description>
-                {props.description}
+                {description}
             </Description>
-            <Rating score={props.score}/>
+            <Rating score={score}/>
         </Card>
     )
 }

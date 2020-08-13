@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 
+
 const RatingContainer = styled.div`
   text-align: center;
   border-radius: 4px;
@@ -65,17 +66,17 @@ const Field = styled.div`
 
 const SubmitBtn = styled.button`
   color: #fff;
-  background-color: #71b406;
+  background-color: #433D3C;
   border-radius: 4px;   
   padding:12px 12px;  
-  border: 1px solid #71b406;
+  border: 1px solid #433D3C;
   width:100%;
   font-size:18px;
   cursor: pointer;
   transition: ease-in-out 0.2s;
   &:hover {
-    background: #71b406;
-    border-color: #71b406;
+    background: #433D3C;
+    border-color: #433D3C;
   }
 `
 
@@ -88,7 +89,7 @@ const ReviewWrapper = styled.div`
   border-left: 1px solid rgba(0,0,0,0.1);
   height: 100vh;
   padding-top: 100px;
-  background: black;
+  background: #F5A045;
   padding-right: 80px;
 `
 
@@ -108,17 +109,16 @@ const RatingBoxTitle = styled.div`
  
 
 const ReviewForm = (props) =>{
-    // onClick={props.setRating.bind(this, score)}
     const ratingOptions = [5,4,3,2,1].map((score, index) => {
         return (
           <Fragment key={index}>
-            <input type="radio" value={score} checked={props.score == score} onChange={()=>console.log('onChange')} name="rating" id={`rating-${score}`}/>
-            <label></label> 
+            <input type="radio" value={score} checked={props.review.score == score} onChange={()=>console.log('onChange')} name="rating" id={`rating-${score}`}/>
+            <label onClick={props.setRating.bind(this, score)}></label> 
           </Fragment>
         )
       })
 
-
+      //onClick={props.setRating.bind(this, score)}
       return (
         <ReviewWrapper>
           <form onSubmit={props.handleSubmit}>
