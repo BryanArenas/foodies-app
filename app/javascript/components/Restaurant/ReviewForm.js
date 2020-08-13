@@ -118,7 +118,7 @@ const ReviewForm = (props) =>{
         )
       })
 
-      //onClick={props.setRating.bind(this, score)}
+      
       return (
         <ReviewWrapper>
           <form onSubmit={props.handleSubmit}>
