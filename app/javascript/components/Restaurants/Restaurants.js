@@ -3,6 +3,7 @@ import axios from 'axios'
 import Restaurant from './Restaurant'
 import styled from 'styled-components'
 
+
 const Home = styled.div`
     text-align:center;
     margin-left: auto;
@@ -55,8 +56,12 @@ const Restaurants = () => {
     return (
         <Home>
             <Header>
+             
+
                 <h1>Foodies</h1>
+
                 <Subheader className="subheader">Honest, unbiased restaurant reviews.</Subheader>
+               
                 </Header>
             <Grid>
                 {grid}

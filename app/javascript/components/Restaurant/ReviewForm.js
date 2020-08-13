@@ -66,7 +66,6 @@ const Field = styled.div`
 
 const SubmitBtn = styled.button`
   color: #fff;
-  background-color: #433D3C;
   border-radius: 4px;   
   padding:12px 12px;  
   border: 1px solid #433D3C;
@@ -137,7 +136,7 @@ const ReviewForm = (props) =>{
                 </RatingBox>
               </RatingContainer>
             </Field>
-            <SubmitBtn type="Submit">Create Review</SubmitBtn>
+            <SubmitBtn className="bg-gray-700"type="Submit">Create Review</SubmitBtn>
           </form>
         </ReviewWrapper>
       )
