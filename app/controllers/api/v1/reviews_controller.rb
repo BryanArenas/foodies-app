@@ -1,8 +1,8 @@
 module Api
     module V1
         class ReviewsController < ApplicationController
-          before_action :authenticate_user!
-
+          #before_action :authenticate_user! #need to be a user
+            
             def create
                 review = restaurant.reviews.new(review_params)
 
@@ -14,13 +14,15 @@ module Api
             end
 
             def destroy
-                review = Review.find(params[:id])
+                #if curren_user.id == review.user.id  #current user must match author id before destroy method.
+                    review = Review.find(params[:id])
 
-                if review.destroy
-                    head :no_content
-                else
-                    render json: { errors: review.errors.messages }, status: 422
-                end
+                    if review.destroy
+                        head :no_content
+                    else
+                        render json: { errors: review.errors.messages }, status: 422
+                    end
+                #end
             end
 
 

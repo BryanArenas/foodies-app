@@ -14,6 +14,8 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 gem 'devise'
+gem 'devise-pwned_password'
+gem 'bcrypt'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
