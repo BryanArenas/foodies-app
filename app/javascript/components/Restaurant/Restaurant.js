@@ -54,6 +54,7 @@ const Restaurant = (props) => {
     const handleChange = (e) => {
         e.preventDefault()
 
+        //Object spreading (...) es6 
         setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
         console.log('review:', review)
     }

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+//check emotion.js library LOTS OF PINK
 
 
 
@@ -107,7 +108,7 @@ const RatingBoxTitle = styled.div`
 
  
 
-const ReviewForm = (props) =>{
+const ReviewForm = (props) => {
     const ratingOptions = [5,4,3,2,1].map((score, index) => {
         return (
           <Fragment key={index}>

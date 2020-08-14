@@ -1,7 +1,7 @@
 module Api
     module V1
         class ReviewsController < ApplicationController
-          
+          before_action :authenticate_user!
 
             def create
                 review = restaurant.reviews.new(review_params)

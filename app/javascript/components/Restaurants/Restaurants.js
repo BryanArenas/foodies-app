@@ -57,7 +57,6 @@ const Restaurants = () => {
         <Home>
             <Header>
              
-
                 <h1>Foodies</h1>
 
                 <Subheader className="subheader">Honest, unbiased restaurant reviews.</Subheader>

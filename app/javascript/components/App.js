@@ -6,12 +6,12 @@ import Restaurants from './Restaurants/Restaurants'
 
 
 const App = () => {
+  
     return(
       <Switch>
         <Route exact path="/" component={Restaurants} />
         <Route exact path="/:slug" component={Restaurant} />
       </Switch>
-      
     )
   }
   
