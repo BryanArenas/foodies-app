@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
 import Header from './Header'
+import FetchCsrf from '../FetchCsrf/FetchCsrf'
 
 
 const Wrapper = styled.div`
@@ -62,8 +63,7 @@ const Restaurant = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const csrfToken = document.querySelector('[name=csrf-token]').content
-        axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+        FetchCsrf()
 
         const restaurant_id = parseInt(restaurant.data.id)
         axios.post('api/v1/reviews', {review, restaurant_id})

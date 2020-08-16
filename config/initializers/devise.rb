@@ -312,4 +312,5 @@ Devise.setup do |config|
   # Minimum number of times a pwned password must exist in the data set in order
   # to be reject.
   config.min_password_matches = 5
+  config.http_authenticatable = [:database]
 end

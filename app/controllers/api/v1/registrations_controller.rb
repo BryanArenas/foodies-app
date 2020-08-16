@@ -1,6 +1,6 @@
 module Api
     module V1
-      class Users::RegistrationsController < Devise::RegistrationsController
+      class RegistrationsController < Devise::RegistrationsController
         def create
           user = User.new(
             email: params[:user][:email],
@@ -10,7 +10,7 @@ module Api
   
           if user.save
             session[:user_id] = user.id
-            render json: { status: :success, logged_in: true }, status: 204
+            
           else
             render json: { status: :error, logged_in: false }, status: 422
           end
