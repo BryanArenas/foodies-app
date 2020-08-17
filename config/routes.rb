@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  
   root 'pages#index'
 
   namespace :api do
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
           post 'password/forgot', to: 'sessions#forgot_password'
           post 'password/reset', to: 'sessions#reset_password'
           get 'me', to: 'sessions#logged_in'
-          delete 'logout', to: 'auth#logout'
+          delete 'logout', to: 'sessions#logout'
         end
       end
 

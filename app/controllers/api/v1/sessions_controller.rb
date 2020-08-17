@@ -1,7 +1,8 @@
 module Api
     module V1
-        class SessionsController < Devise::SessionsController
+        class SessionsController < ApplicationController
             include Resettable
+            include Authable
             before_action :authenticate, only: %i[logout]
 
             def create

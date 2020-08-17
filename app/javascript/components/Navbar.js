@@ -65,31 +65,36 @@ const Logo = styled.span`
 `
 
 const Navbar = (props) => {
-  return (  
-        <Wrapper>
-          <Container>
-            <Nav>
-              <Left>
-                <Logo><Link to="/">Foodies</Link></Logo>
-              </Left>
-              <Right>
-                <Menu>
-                  
-                    <Fragment>
-                      <li><Link to="/">Home</Link></li>
-                      <li><Link to="/logout">Log Out</Link></li>
-                    </Fragment>
-                    <Fragment>
-                      <li><Link to="/login">Login</Link></li>
-                      <li><Link to="/register">Signup</Link></li>
-                    </Fragment>
-                  
-                </Menu>
-              </Right>
-            </Nav>  
-          </Container>
-        </Wrapper>
-  )
-}
+    return (
+        <AuthConsumer>
+          { ({ isAuth, logout }) => (
+            <Wrapper>
+              <Container>
+                <Nav>
+                  <Left>
+                    <Logo><Link to="/">Foodies</Link></Logo>
+                  </Left>
+                  <Right>
+                    <Menu>
+                        { 
+                        isAuth ? 
+                        <Fragment>
+                          <li><Link to="/">Home</Link></li>
+                          <li><a onClick={logout}>Log Out</a></li>
+                        </Fragment> :
+                        <Fragment>
+                          <li><Link to="/login">Login</Link></li>
+                          <li><Link to="/register">Signup</Link></li>
+                        </Fragment>
+                      }
+                    </Menu>
+                  </Right>
+                </Nav>  
+              </Container>
+            </Wrapper>
+          )}
+        </AuthConsumer>
+      )
+    }
 
 export default Navbar

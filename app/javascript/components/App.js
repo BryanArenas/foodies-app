@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Restaurant from './Restaurant/Restaurant'
 import Restaurants from './Restaurants/Restaurants'
@@ -9,24 +9,25 @@ import Forgot from './Users/Forgot'
 import Reset from './Users/Reset'
 import { AuthProvider } from './Users/AuthContext'
 import PublicRoute from './Users/PublicRoute'
+import PrivateRoute from './Users/PrivateRoute'
 
 
-
-const App = () => {
+class App extends Component {
+  render(){
       return(
-      
-      <Switch>
         <AuthProvider>
-        <Navbar/>
-        <Route exact path="/" component={Restaurants} />
-        <Route exact path="/:slug" component={Restaurant} />
-        <PublicRoute path="/login" component={Login} />
-        <PublicRoute exact path="/register" component={Register} />
-        <PublicRoute path="/forgot-password" component={Forgot} />
-        <PublicRoute path="/reset-password" component={Reset} />
+          <Navbar/>
+            <Switch> 
+              <Route exact path="/" component={Restaurants} />
+              <Route exact path="/:slug" component={Restaurant} />
+              <PublicRoute exact path="/login" component={Login} />
+              <PublicRoute exact path="/register" component={Register} />
+              <PublicRoute exact path="/forgot-password" component={Forgot} />
+              <PublicRoute exact path="/reset-password" component={Reset} />
+            </Switch>
         </AuthProvider>
-      </Switch>
-    )
+      )
+    }
   }
   
   export default App

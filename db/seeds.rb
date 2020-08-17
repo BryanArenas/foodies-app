@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Restaurant.where([
+Restaurant.create([
     {
         name: "Chipotle",
         image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/1200px-Chipotle_Mexican_Grill_logo.svg.png"
@@ -32,4 +32,4 @@ Restaurant.where([
         image_url: "http://www.oceansidechamber.com/uploads/4/4/5/3/44535401/buffalo-wild-wings-logo.png"
     }
 
-]).first_or_create
+])

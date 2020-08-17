@@ -22,7 +22,7 @@ class AuthProvider extends Component {
     e.preventDefault()
 
     FetchCsrf()
-    axios.post('/api/v1/auth', { user: { ...user } }, { withCredentials: true })
+    axios.post('/api/v1/sessions', { user: { ...user } }, { withCredentials: true })
     .then( _resp => {
       this.setState({ isAuth: true })
       props.history.push("/")
@@ -46,7 +46,7 @@ class AuthProvider extends Component {
     e.preventDefault()
 
     FetchCsrf()
-    axios.post('/api/v1/auth/password/forgot', { email: user.email })
+    axios.post('/api/v1/registrations/password/forgot', { email: user.email })
     .then( resp => {
       this.setState({ isAuth: false })
       props.history.push("/forgot-password/complete?success=true")
@@ -58,7 +58,7 @@ class AuthProvider extends Component {
     e.preventDefault()
 
     FetchCsrf
-    axios.post('/api/v1/auth/password/reset', { password: user.password, token })
+    axios.post('/api/v1/registrations/password/reset', { password: user.password, token })
     .then( _resp => {
       this.setState({ isAuth: false })
       window.location.href = "/login"
@@ -70,7 +70,7 @@ class AuthProvider extends Component {
     e.preventDefault()
 
     FetchCsrf
-    axios.delete('/api/v1/auth/logout')
+    axios.delete('/api/v1/sessions/logout')
     .then( _resp => {
       this.setState({ isAuth: false })
       window.location.href = '/'
