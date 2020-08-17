@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'fast_jsonapi'
 # gem 'sendgrid_ruby'
 gem 'sidekiq'
-gem 'devise'
+
 
 
 # Use Active Storage variant

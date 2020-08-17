@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Restaurant from './Restaurant'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 
 const Home = styled.div`

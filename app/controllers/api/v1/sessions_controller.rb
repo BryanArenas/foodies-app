@@ -1,9 +1,7 @@
 module Api
     module V1
         class SessionsController < ApiController
-            include Resettable
-            before_action :authenticate, only: %i[logout]
-
+          
             def create
                 user = User.find_by(email: params[:user][:email])
         

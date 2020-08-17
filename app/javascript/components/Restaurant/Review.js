@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Rating from '../Rating/Rating'
 
 const Card = styled.div`
@@ -20,6 +20,7 @@ const Description = styled.div`
     padding: 0 0 20px 0;
 
 `
+
 const Review = (props) => {
     const { score, title, description } = props.attributes
     return (

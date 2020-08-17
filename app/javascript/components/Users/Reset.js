@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState }  from 'react'
 import { AuthConsumer } from './AuthContext'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const ForgotPassWrapper = styled.div``
 const FormWrapper = styled.div`

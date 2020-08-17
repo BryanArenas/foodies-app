@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
 import Header from './Header'

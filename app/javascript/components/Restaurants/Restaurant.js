@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Rating from '../Rating/Rating'
 
 const Card = styled.div `

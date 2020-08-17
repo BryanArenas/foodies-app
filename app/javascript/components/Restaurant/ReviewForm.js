@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 //check emotion.js library LOTS OF PINK
 
 
