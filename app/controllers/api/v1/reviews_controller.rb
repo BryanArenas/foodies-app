@@ -1,6 +1,6 @@
 module Api
     module V1
-        class ReviewsController < ApplicationController
+        class ReviewsController < ApiController
           #before_action :authenticate_user! #need to be a user
             
             def create

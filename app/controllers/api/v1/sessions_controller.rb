@@ -1,8 +1,7 @@
 module Api
     module V1
-        class SessionsController < ApplicationController
+        class SessionsController < ApiController
             include Resettable
-            include Authable
             before_action :authenticate, only: %i[logout]
 
             def create

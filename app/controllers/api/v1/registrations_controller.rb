@@ -1,8 +1,8 @@
 module Api
     module V1
-      class RegistrationsController < ApplicationController
-        def create
-            include Authable
+      class RegistrationsController < ApiController
+
+        def create  
           user = User.new(
             email: params[:user][:email],
             password: params[:user][:password],

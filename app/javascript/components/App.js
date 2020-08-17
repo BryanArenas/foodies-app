@@ -20,10 +20,10 @@ class App extends Component {
             <Switch> 
               <Route exact path="/" component={Restaurants} />
               <Route exact path="/:slug" component={Restaurant} />
-              <PublicRoute exact path="/login" component={Login} />
-              <PublicRoute exact path="/register" component={Register} />
-              <PublicRoute exact path="/forgot-password" component={Forgot} />
-              <PublicRoute exact path="/reset-password" component={Reset} />
+              <PublicRoute exact path="/users/login" component={Login} />
+              <PublicRoute exact path="/users/register" component={Register} />
+              <PublicRoute exact path="/users/forgot-password" component={Forgot} />
+              <PublicRoute exact path="/users/reset-password" component={Reset} />
             </Switch>
         </AuthProvider>
       )

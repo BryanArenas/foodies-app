@@ -83,8 +83,8 @@ const Navbar = (props) => {
                           <li><a onClick={logout}>Log Out</a></li>
                         </Fragment> :
                         <Fragment>
-                          <li><Link to="/login">Login</Link></li>
-                          <li><Link to="/register">Signup</Link></li>
+                          <li><Link to="/users/login">Login</Link></li>
+                          <li><Link to="/users/register">Signup</Link></li>
                         </Fragment>
                       }
                     </Menu>
